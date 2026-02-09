@@ -47,5 +47,9 @@ dubbo:
     name: dubbo
     port: -1
   registry:
-    id: nacos-registry
-    address: nacos://localhost:8848
+    id: zk-registry
+    address: zookeeper://127.0.0.1:21810
+  config-center:
+    address: zookeeper://127.0.0.1:21810
+  metadata-report:
+    address: zookeeper://127.0.0.1:21810

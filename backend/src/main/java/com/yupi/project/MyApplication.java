@@ -4,7 +4,6 @@ import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 /**
  * 入口类
  *
@@ -17,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyApplication {
 
     public static void main(String[] args) {
+        new EmbeddedZooKeeper(21810, false).start();
         SpringApplication.run(MyApplication.class, args);
     }
 
