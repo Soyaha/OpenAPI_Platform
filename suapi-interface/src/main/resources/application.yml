@@ -1,0 +1,8 @@
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+suapi:
+  client:
+    access-key: su
+    secret-key: abcd
