@@ -21,14 +21,10 @@ logging:
 
 dubbo:
   application:
-    name: dubbo-springboot-demo-provider
+    name: dubbo-api-platform-backend-provider
   protocol:
     name: dubbo
     port: -1
   registry:
-    id: zk-registry
-    address: zookeeper://127.0.0.1:21810
-  config-center:
-    address: zookeeper://127.0.0.1:21810
-  metadata-report:
-    address: zookeeper://127.0.0.1:21810
+    id: nacos-registry
+    address: nacos://localhost:8848
