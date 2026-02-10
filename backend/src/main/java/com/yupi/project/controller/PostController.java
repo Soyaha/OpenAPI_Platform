@@ -2,6 +2,7 @@ package com.yupi.project.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.su.suapicommon.model.entity.User;
 import com.yupi.project.annotation.AuthCheck;
 import com.yupi.project.common.BaseResponse;
 import com.yupi.project.common.DeleteRequest;
@@ -15,7 +16,6 @@ import com.yupi.project.model.dto.post.PostUpdateRequest;
 import com.yupi.project.model.entity.Post;
 import com.yupi.project.service.PostService;
 import com.yupi.project.service.UserService;
-import com.yupi.yuapicommon.model.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -28,8 +28,6 @@ import java.util.List;
 /**
  * 帖子接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/post")

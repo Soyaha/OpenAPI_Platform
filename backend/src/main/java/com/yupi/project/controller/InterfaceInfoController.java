@@ -3,6 +3,9 @@ package com.yupi.project.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
+import com.su.suapiclientsdk.client.SuApiClient;
+import com.su.suapicommon.model.entity.InterfaceInfo;
+import com.su.suapicommon.model.entity.User;
 import com.yupi.project.annotation.AuthCheck;
 import com.yupi.project.common.*;
 import com.yupi.project.constant.CommonConstant;
@@ -14,9 +17,7 @@ import com.yupi.project.model.dto.interfaceinfo.InterfaceInfoUpdateRequest;
 import com.yupi.project.model.enums.InterfaceInfoStatusEnum;
 import com.yupi.project.service.InterfaceInfoService;
 import com.yupi.project.service.UserService;
-import com.yupi.yuapiclientsdk.client.YuApiClient;
-import com.yupi.yuapicommon.model.entity.InterfaceInfo;
-import com.yupi.yuapicommon.model.entity.User;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -29,8 +30,6 @@ import java.util.List;
 /**
  * 接口管理
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/interfaceInfo")
@@ -44,7 +43,7 @@ public class InterfaceInfoController {
     private UserService userService;
 
     @Resource
-    private YuApiClient yuApiClient;
+    private SuApiClient suApiClient;
 
     // region 增删改查
 
@@ -222,9 +221,9 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 判断该接口是否可以调用
-        com.yupi.yuapiclientsdk.model.User user = new com.yupi.yuapiclientsdk.model.User();
+        com.su.suapiclientsdk.model.User user = new com.su.suapiclientsdk.model.User();
         user.setUsername("test");
-        String username = yuApiClient.getUsernameByPost(user);
+        String username = suApiClient.getNameByPostWithJson(user);
         if (StringUtils.isBlank(username)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
         }
@@ -290,10 +289,10 @@ public class InterfaceInfoController {
         User loginUser = userService.getLoginUser(request);
         String accessKey = loginUser.getAccessKey();
         String secretKey = loginUser.getSecretKey();
-        YuApiClient tempClient = new YuApiClient(accessKey, secretKey);
+        SuApiClient tempClient = new SuApiClient(accessKey, secretKey);
         Gson gson = new Gson();
-        com.yupi.yuapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.yupi.yuapiclientsdk.model.User.class);
-        String usernameByPost = tempClient.getUsernameByPost(user);
+        com.su.suapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.su.suapiclientsdk.model.User.class);
+        String usernameByPost = tempClient.getNameByPostWithJson(user);
         return ResultUtils.success(usernameByPost);
     }
 

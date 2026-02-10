@@ -1,16 +1,15 @@
 package com.yupi.project.service;
 
 
+
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yupi.yuapicommon.model.entity.User;
+import com.su.suapicommon.model.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * 用户服务
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 public interface UserService extends IService<User> {
 

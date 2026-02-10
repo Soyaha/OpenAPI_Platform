@@ -1,6 +1,7 @@
 package com.yupi.project.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.su.suapicommon.model.entity.User;
 import com.yupi.project.common.BaseResponse;
 import com.yupi.project.common.ErrorCode;
 import com.yupi.project.common.ResultUtils;
@@ -8,7 +9,6 @@ import com.yupi.project.exception.BusinessException;
 import com.yupi.project.model.entity.Hotel;
 import com.yupi.project.service.HotelService;
 import com.yupi.project.service.UserService;
-import com.yupi.yuapicommon.model.entity.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;

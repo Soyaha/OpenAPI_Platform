@@ -26,6 +26,11 @@
         </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
         <dependency>
+            <groupId>com.su</groupId>
+            <artifactId>suapi-common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
             <version>3.1.3</version>
