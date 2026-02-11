@@ -134,6 +134,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
 //        所有前缀为：/api/ 的请求进行转发，转发到http://localhost:8123/api
 //        比如请求网关：http://localhost:8090/api/name/?name=archer转发到 http://localhost:8123/api/name/?name=archer
 //        7.响应日志
+        // todo 是否有调用次数
         return handleResponse(exchange,chain,interfaceInfo.getId(),invokeUser.getId());
 //        8. todo 调用成功，接口调用次数+1
 //        if(response.getStatusCode()==HttpStatus.OK){
